@@ -1,0 +1,10 @@
+Package: JagsTutorial
+Title: Tutorial for learning JAGS
+Version: 0.0.0.9000
+Authors@R: person("Rianne", "Jacobs", email = "rianne.jacobs@rug.nl", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+Depends: R (>= 3.5.1)
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
