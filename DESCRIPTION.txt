@@ -1,4 +1,4 @@
-Package: Jags_Tutorial
+Package: JagsTutorial
 Title: Tutorial for learning JAGS
 Version: 0.0.0.9000
 Authors@R: person("Rianne", "Jacobs", email = "rianne.jacobs@rug.nl", role = c("aut", "cre"))
