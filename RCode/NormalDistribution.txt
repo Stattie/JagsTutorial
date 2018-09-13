@@ -1,0 +1,16 @@
+model {
+
+# likelihood
+  for (i in 1:n.obs){
+    y[i] ~ dnorm(mu, tau)
+  }
+
+# transformed variables
+  sig2 = 1/tau
+  sig = sqrt(sig2)
+
+# Priors
+  mu ~ dnorm(5.25,1/0.042)
+  tau ~ dgamma(32,88.01457)
+  
+}

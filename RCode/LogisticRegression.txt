@@ -1,0 +1,13 @@
+model {
+# likelihood
+  
+  for (i in 1:n.obs){
+    y[i] ~ dbern(mu[i])
+    logit(mu[i]) <- sum(x[i,]*b)
+  }
+
+# Priors
+  b[1] ~ dnorm(0,0.001)
+  b[2] ~ dnorm(0,0.001)
+  b[3] ~ dnorm(0,0.001)
+}
