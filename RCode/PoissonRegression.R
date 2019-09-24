@@ -20,13 +20,13 @@ parameters <- c("b")
 inits.list <- list(list(b = c(1,1)),
                    list(b = c(1,1)))
 
-data.list <- list(y = dat$y, x = dat$x, n.obs=N)
-                  #mu.beta=rep(0,2),  
-                  #tau.beta=diag(.0001,2))
+data.list <- list(y = dat$y, x = dat$x, n.obs=N,
+                  mu.beta=rep(0,2),  
+                  tau.beta=diag(.0001,2))
 
-post.runjags <- run.jags(model = "PoissonRegression", data = data.list, inits = inits.list,
+post.runjags <- run.jags(model = "RCode/PoissonRegression", data = data.list, inits = inits.list,
                          n.chains = 2,burnin=500,
-                         thin = 1, sample=1000,
+                         thin = 15, sample=1000,
                          monitor = parameters, modules = "glm")
 
 summary(post.runjags)

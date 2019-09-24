@@ -8,7 +8,7 @@ model {
   }
 
 # Priors
-  #b ~ dmnorm(mu.beta,tau.beta)
-  b[1] ~ dnorm(0,0.001)
-  b[2] ~ dnorm(0,0.001)
+  b ~ dmnorm(mu.beta,tau.beta)
+  #b[1] ~ dnorm(0,0.001)
+  #b[2] ~ dnorm(0,0.001)
 }

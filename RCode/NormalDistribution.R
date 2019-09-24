@@ -1,9 +1,10 @@
 library(runjags)
 library(coda)
 
+
 #Example 4.2 Lesaffre & Lawson (2012)
 
-ALP <- read.table("data/ALP.txt",header=TRUE)
+ALP <- read.table("RCode/data/ALP.txt",header=TRUE)
 head(ALP)
 str(ALP)
 summary(ALP)
@@ -21,7 +22,7 @@ ybar; sig2
 # Current Data
 alp <- ALP[ALP$artikel==0,"alkfos_tr"]
 
-file.show("NormalDistribution.txt")
+file.show("RCode/NormalDistribution.txt")
 
 
 #Data list
@@ -38,9 +39,9 @@ inits.list <- list(list(mu = 5.5, tau = 2.5),
 inits.list <- function()(list(mu=rnorm(1,5.5,1),
                          tau=runif(1,2,3)))
 
-post.sim <- run.jags(model = "NormalDistribution", data = data.list, inits = inits.list,
-                         n.chains = 2, adapt = 0,burnin = 500,
-                         thin = 1,sample = 5000,
+post.sim <- run.jags(model = "RCode/NormalDistribution", data = data.list, inits = inits.list,
+                         n.chains = 2, burnin = 500,
+                         thin = 1,sample = 1000,
                          monitor = parameters)
 
 summary(post.sim ,confidence = c(0.95)) #default is 95%

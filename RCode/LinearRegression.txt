@@ -1,6 +1,6 @@
 model {
 # likelihood
-  
+  #xbar <- mean(x)
   for (i in 1:n.obs){
     y[i] ~ dnorm(mu[i], tau)
     mu[i] = b0 + b1*x[i]

@@ -20,12 +20,16 @@ fit
 ## Parameters to monitor 
 parameters <- c("b","r")
 
-inits.list <- list(list(b = c(1,1)),
-                   list(b = c(1,1)))
+inits.list <- list(list(b = c(1,1),
+                        .RNGname = "base:Mersenne-Twister",
+                        .RNGseed = 123),
+                   list(b = c(1,1),
+                        .RNGname = "base:Mersenne-Twister",
+                        .RNGseed = 1345))
 
 data.list <- list(y = dat$y, x = dat$x, n.obs=N)
 
-post.runjags <- run.jags(model = "NegBinRegression", data = data.list, inits = inits.list,
+post.runjags <- run.jags(model = "RCode/NegBinRegression", data = data.list, inits = inits.list,
                          n.chains = 2,burnin=500,
                          thin = 1, sample=1000,
                          monitor = parameters,modules = "glm")
